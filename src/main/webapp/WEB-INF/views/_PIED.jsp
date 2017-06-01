@@ -1,3 +1,7 @@
+<center>
 <div class="pied">
-    MENU
+    
+    COPY RIGHT 2017
+ 
 </div>
+    </center>

@@ -15,21 +15,43 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
-        <a href="<spring:url value="/hotel/ajouter"/>">Ajouter</a>
+          <center>
+        <a href="<spring:url value='/hotel/ajouter'/>">Ajouter</a>
+  
         <contenu>
-            <table>
-                <c:forEach items="${listeHotels}" var="h">
+            <table border="2">
+               
+                    <tr>
+                        <td>Nom Hotel</td>
+                        <td>Rue</td>
+                        <td>Localite</td>
+                        <td>Pays</td>
+                        <td>Numero</td>
+                        <td>Code Postal</td>
+                        <td>Supprimer</td>
+                        <td>Modifier</td>
+                        
+                    </tr>
+                     <c:forEach items="${listeHotels}" var="h">
                     <tr>
                         <td>${h.nom}</td>
                         <td>${h.adresse.rue}</td>
+                        <td>${h.adresse.localite}</td>
+                        <td>${h.adresse.pays}</td>
+                        <td>${h.adresse.num}</td>
+                        <td>${h.adresse.zip}</td>
+                
                         <td>
                             <a href='<spring:url value="/hotel/supprimer/${h.id}"/>'>Supprimer</a>
+                        </td>
+                        <td>
                             <a href='<spring:url value="/hotel/modifier/${h.id}"/>'>Modifier</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
         </contenu>
+        </center>
         <c:import url="../_PIED.jsp"></c:import>
 </body>
 </html>

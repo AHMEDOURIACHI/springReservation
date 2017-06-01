@@ -35,7 +35,7 @@ public class Chambre implements Serializable {
     
     private String nom;
     
-    private Double prix;
+    private Long prix;
     
     @ManyToMany
     @JoinTable(name = "chambre_reservation")
@@ -48,6 +48,44 @@ public class Chambre implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+  
+
+ 
+
+    public Long getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Long prix) {
+        this.prix = prix;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+    
+    
 
     @Override
     public int hashCode() {

@@ -17,18 +17,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <center>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
         <contenu>
-            <h1>Modification hotel</h1>
+            <h1>Ajout Hotel</h1>
         <form:form modelAttribute="hotel">
             <label>Nom hotel:</label>
             <form:input path="nom"/>
             <label>Rue:</label>
-            <form:textarea path="adresse.rue"/>
+            <form:input path="adresse.rue"/>
+            <label>Localite:</label>
+            <form:input path="adresse.localite"/>
+            <label>Pays:</label>
+            <form:input path="adresse.pays"/>
+            <label>Numero telephone:</label>
+            <form:input path="adresse.num"/>
+            <label>Code postal:</label>
+            <form:input path="adresse.zip"/>
+            
             <input type="Submit"/>
         </form:form>
         </contenu>
         <c:import url="../_PIED.jsp"></c:import>
 </body>
+</center>
 </html>

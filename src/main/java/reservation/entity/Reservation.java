@@ -37,7 +37,7 @@ public class Reservation implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    public Long id;
 
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateReseravation;
@@ -59,6 +59,39 @@ public class Reservation implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Date getDateReseravation() {
+        return dateReseravation;
+    }
+
+    public void setDateReseravation(Date dateReseravation) {
+        this.dateReseravation = dateReseravation;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public List<Chambre> getChambres() {
+        return chambres;
+    }
+
+    public void setChambres(List<Chambre> chambres) {
+        this.chambres = chambres;
+    }
+
+    public EtatReservation getEtatReservation() {
+        return etatReservation;
+    }
+
+    public void setEtatReservation(EtatReservation etatReservation) {
+        this.etatReservation = etatReservation;
+    }
+    
 
     @Override
     public int hashCode() {

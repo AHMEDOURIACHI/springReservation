@@ -19,6 +19,7 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
+    <center>
         <contenu>
             <h1>Modification hotel</h1>
         <form:form modelAttribute="hotel" action="${cheminModif}">
@@ -26,10 +27,21 @@
             <label>Nom hotel:</label>
             <form:input path="nom"/>
             <label>Rue:</label>
-            <form:textarea path="adresse.rue"/>
+            <form:input path="adresse.rue"/>
+            <label>Localite</label>
+            <form:input path="adresse.localite"/>
+            <label>Pays</label>
+            <form:input path="adresse.pays"/>
+            <label>Numero telephone</label>
+            <form:input path="adresse.num"/>
+            <label>Code postal</label>
+            <form:input path="adresse.zip"/>
+            <br>
+            <br>
             <input type="Submit"/>
         </form:form>
         </contenu>
+        </center>
         <c:import url="../_PIED.jsp"></c:import>
 </body>
 </html>

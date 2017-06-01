@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import reservation.entity.Hotel;
 import reservation.service.HotelServiceCRUD;
-
+        
 /**
  *
  * @author formation
@@ -54,7 +54,7 @@ public class HotelController {
         service.save(monHotel);
         
         // Redircection vers liste hotels
-        return "redirect:/hotel/lister";
+        return "redirect:/hotel/lister.jsp";
     }
     
     @RequestMapping("/modifier/{id}")
