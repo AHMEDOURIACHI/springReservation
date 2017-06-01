@@ -23,7 +23,7 @@ public class Reservationcontroller {
     public String ajouterGET(Model model){
         
         model.addAttribute("dto", new reservationDTO());
-        model.addAttribute("chambres", new )
+//        model.addAttribute("chambres", new )
         
         return "/reservation/ajouter.jsp";
         
