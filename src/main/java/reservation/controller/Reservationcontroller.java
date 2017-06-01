@@ -16,7 +16,7 @@ import reservation.DTO.reservationDTO;
  * @author formation
  */
 @Controller
-////ok
+
 @RequestMapping(value = "/reservation")
 public class Reservationcontroller {
     @RequestMapping(value = "/ajouter", method = RequestMethod.GET)
