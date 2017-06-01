@@ -16,12 +16,9 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
-        <form:form modelAttribute="dto"/>
-        <form:checkboxes items="${chambresID}"  itemValue="id" path="dto.id"></form:checkboxes>
-        
-        //form:select items="${hotels}" itemLabel="nom" itemValue="id" path="hotel.id"/>
-        
-        
+        <contenu>
+            CONTENU ICI
+        </contenu>
         <c:import url="../_PIED.jsp"></c:import>
 </body>
 </html>
