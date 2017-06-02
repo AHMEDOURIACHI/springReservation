@@ -85,7 +85,7 @@ public class Reservationcontroller {
         List<Chambre> chambre = (List<Chambre>) chs.findAll();
 
         model.addAttribute("reservation", reserv);
-        return "/reservation/lister.jsp";
+        return "/reservation/lister.jsp";  
     }
 
 }
