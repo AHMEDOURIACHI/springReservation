@@ -8,6 +8,11 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:set var="chemin">
+
+    <spring:url value="/reservation/ajouter" />
+
+</c:set>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +21,21 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
-        <form:form modelAttribute="dto"/>
-        <form:checkboxes items="${chambresID}"  itemValue="id" path="dto.id"></form:checkboxes>
-        
-        //form:select items="${hotels}" itemLabel="nom" itemValue="id" path="hotel.id"/>
-        
-        
-        <c:import url="../_PIED.jsp"></c:import>
-</body>
+        <form:form modelAttribute="dto" action="${chemin}">
+            <label>date de reservation</label>
+            <form:input path="dateReseravation"/>
+            
+            <label>Nom du client</label>
+            <form:select items="${clients}" itemLabel="nom" itemValue="id" path="client.id"/>
+            
+            <form:checkboxes items="${liste}"   path="chambresID" itemLabel="nom" itemValue="id"
+                             />
+            <input type="Submit" value="ajouter"/> 
+            
+
+
+
+            <c:import url="../_PIED.jsp"></c:import>
+        </form:form>
+    </body>
 </html>

@@ -56,6 +56,7 @@ public class reservationDTO {
     public void setClient(Client client) {
         this.client = client;
     }
+    
 
     public List<Long> getChambresID() {
         return chambresID;
