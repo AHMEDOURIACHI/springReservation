@@ -14,7 +14,7 @@
     <a href="<spring:url value='/hotel/lister'/>">gestion des hotels</a>
     <a href="<spring:url value="/chambre/lister"/>">gestion des chambres</a>
     <a href="<spring:url value="/client/lister"/>">gestion des clients</a>
-    <a href="<spring:url value="/reservation/ajouter"/>">gestion des reservations</a>
+    <a href="<spring:url value="/reservation/lister"/>">gestion des reservations</a>
     <a href="<spring:url value="/deconnexion"/>">Deconnexion</a>
     </c:otherwise>
     </c:choose>

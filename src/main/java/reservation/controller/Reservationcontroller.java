@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import reservation.DTO.reservationDTO;
@@ -63,19 +64,18 @@ public class Reservationcontroller {
 
         // Sauve réservation
         rsc.save(reserva);
-        
+
         // Sauve réservations
         for (Long id : Mondto.getChambresID()) {
 
             Chambre c = chs.findOne(id);
-            
+
             c.getReservations().add(reserva);// Set ds 1 sens
             reserva.getChambres().add(c);
             chs.save(c);
         }
-        
+
         //chs.save(chambres);
-       
         return "redirect:/reservation/lister";
     }
 
@@ -85,7 +85,14 @@ public class Reservationcontroller {
         List<Chambre> chambre = (List<Chambre>) chs.findAll();
 
         model.addAttribute("reservation", reserv);
-        return "/reservation/lister.jsp";  
+        return "/reservation/lister.jsp";
+    }
+
+    @RequestMapping(value = "/supprimer/{reservation}", method = RequestMethod.GET)
+    public String supprimer(@PathVariable(value = "reservation") long id) {
+        this.rsc.delete(id);
+
+        return "redirect:/reservation/lister";
     }
 
 }

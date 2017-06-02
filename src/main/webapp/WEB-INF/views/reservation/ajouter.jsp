@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:set var="chemin">
 
-    <spring:url value="/reservation/ajouter" />
+   
 
 </c:set>
 <!DOCTYPE html>

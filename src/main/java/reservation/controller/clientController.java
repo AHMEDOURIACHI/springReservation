@@ -10,6 +10,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import reservation.entity.Client;
@@ -31,6 +33,33 @@ public class clientController {
         listeClient= (List<Client>) service.findAll();
         model.addAttribute("clients", listeClient);
         return"/client/lister.jsp";
+    }
+    
+     @RequestMapping(value = "/ajouter",method = RequestMethod.GET)
+    public String ajouter(Model model){
+       Client cl = new Client();
+       model.addAttribute("client", cl);
+       
+       return "/client/ajouter.jsp";
+    }
+   
+    @RequestMapping(value = "/ajouter",method = RequestMethod.POST)
+    public String ajouterPost(@ModelAttribute(value = "client")Client client){
+        service.save(client);
+        return "redirect:/client/lister";
+    }
+    
+    @RequestMapping(value = "/modifier/{client}",method = RequestMethod.GET)
+    public String modifier(Model model ,@PathVariable(value = "client")long id){
+        Client client = service.findOne(id);
+        model.addAttribute("monclient", client);
+        
+        return "/client/modifier.jsp";
+    }
+    @RequestMapping(value = "/modifier",method = RequestMethod.POST)
+    public String modifierPost(@ModelAttribute(value = "monclient")Client client ){
+        service.save(client);
+        return"redirect:/client/lister";
     }
     
 }
