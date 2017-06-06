@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -41,7 +42,26 @@ public class Reservation implements Serializable {
 
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateReseravation;
-    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date checkIn;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date checkOut;
+
+    public Date getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(Date checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public Date getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(Date checkOut) {
+        this.checkOut = checkOut;
+    }
     @ManyToOne
     @JoinColumn
     private Client client;

@@ -38,6 +38,7 @@ public class UtilisateurController {
         // Le met en session
         session.setAttribute("utilisateurConnecte", true);
         session.setAttribute("typeUtilConnecte", u.getTypeUtil().toString());
+        session.setAttribute("idutilisateur", u.getId());
 
         return "redirect:/hotel/lister";
 

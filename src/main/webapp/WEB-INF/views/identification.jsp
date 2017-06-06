@@ -19,11 +19,11 @@
     <center>
          <contenu>
              <h1>Identification</h1>
-         <form:form modelAttribute="utilDTO">
+         <form:form modelAttribute="util">
              <label>Identifiant</label>
-             <form:input path="identifiant"/>
+             <form:input path="identifiants"/>
              <label>Mot de passe</label>
-             <form:password path="motpasse"/>
+             <form:password path="motDePasse"/>
              <input type="submit"/>
          </form:form>
              

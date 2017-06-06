@@ -12,6 +12,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -37,7 +39,18 @@ public class Utilisateur implements Serializable {
     public TypeUtilisateur getTypeUtil() {
         return typeUtil;
     }
+    
+    @OneToOne
+    @JoinColumn() 
+     private Client client;
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
     public void setTypeUtil(TypeUtilisateur typeUtil) {
         this.typeUtil = typeUtil;
     }

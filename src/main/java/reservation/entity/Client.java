@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -33,7 +34,24 @@ public class Client implements Serializable {
     
     @OneToMany(mappedBy = "client")
     private List<Reservation> reservations = new ArrayList<>();
-    
+    @OneToOne(mappedBy = "client")
+    private Utilisateur utilisateur;
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
     @Embedded
     private Adresse adresse;
 

@@ -3,21 +3,39 @@
 
 
 <center>
-<div class="menu">
-    <c:choose>
-    <c:when test="${!utilsateurConnecte}">
-        <a href="<spring:url value="/identification"/>"> Identification </a>
-    </c:when> 
-        <c:otherwise >
-    
-     
-    <a href="<spring:url value='/hotel/lister'/>">gestion des hotels</a>
-    <a href="<spring:url value="/chambre/lister"/>">gestion des chambres</a>
-    <a href="<spring:url value="/client/lister"/>">gestion des clients</a>
-    <a href="<spring:url value="/reservation/lister"/>">gestion des reservations</a>
-    <a href="<spring:url value="/deconnexion"/>">Deconnexion</a>
-    </c:otherwise>
-    </c:choose>
-    
-</div>
+    <div class="menu">
+        <c:choose>
+            <c:when test="${!utilisateurConnecte}">
+                <a href="<spring:url value="/identification" />">Identification</a>
+                <a href="<spring:url value="/inscription" />">Inscription</a>
+            </c:when>
+            <c:when test="${typeUtilConnecte=='ADMIN'}">
+                <ul>
+                    <li>
+                        <a href="<spring:url value="/hotel/lister"></spring:url>">Hotels</a>
+
+                        </li>
+                        <li>
+                            <a href="<spring:url value="/chambre/lister"></spring:url>">Chambres</a>
+                        </li>
+                        <li>
+                            <a href="<spring:url value="/client/lister" />">Clients</a>
+                    </li>
+                    <li>
+                        <a href="<spring:url value="/reservations/lister" />">Reservations</a>
+                    </li>
+                    <li><a href="<spring:url value="/deconnexion" />">Déconnexion</a></li>
+                </ul>
+            </c:when>
+            <c:otherwise>
+                <ul>
+                    <li><a href="<spring:url value="/reservationclient/lister" />">Mes réservations</a></li>
+                </ul>
+                <ul>
+                    <li><a href="<spring:url value="/deconnexion" />">Déconnexion</a></li>
+                </ul>
+            </c:otherwise>
+        </c:choose>
+
+    </div>
 </center>
