@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,7 +41,7 @@ public class ReservationClientController {
         long clientId = utilisateur.getClient().getId();
 
         model.addAttribute("reservationAPayer", service.listeParClientIdEtEtat(clientId, Reservation.EtatReservation.A_PAYER));
-        model.addAttribute("reservationPayer", service.findAllByClientIdAndEtatReservation(clientId, Reservation.EtatReservation.PAYE));
+        model.addAttribute("reservationPayer",  service.findAllByClientIdAndEtatReservation(clientId, Reservation.EtatReservation.PAYE));
         model.addAttribute("reservationAnnule", service.listeParClientIdEtEtat(clientId, Reservation.EtatReservation.ANNULE));
         
         return "/reservationclient/liste.jsp";
@@ -50,7 +51,22 @@ public class ReservationClientController {
     public String detail(Model model, @PathVariable(value = "id") long id) {
         Reservation reservation = service.findOne(id);
         model.addAttribute("detail", reservation);
-
+        
         return "/reservationclient/detail.jsp";
+    }
+    @RequestMapping(value = "/payer/{id}",method = RequestMethod.GET)
+    public String payer(Model model,@PathVariable(value = "id") long id){
+        Reservation reservation = service.findOne(id);
+        model.addAttribute("payer", reservation);
+        return "/reservationclient/payer.jsp";
+        
+    }
+    
+    @RequestMapping(value = "/payer",method = RequestMethod.POST)
+    public String payerPost(@ModelAttribute(value = "payer") Reservation reservation){
+        reservation.setEtatReservation(Reservation.EtatReservation.PAYE);
+        service.save(reservation);
+        return "redirect:/reservationclient/detail";
+        
     }
 }

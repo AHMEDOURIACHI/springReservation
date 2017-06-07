@@ -21,8 +21,8 @@
                         <th>DATES OUT</th>
                         <th>NOM CHAMBRE</th>
                         <th>PRIX CHAMBRE</th>
-
-
+                        <th>ACTION</th>
+                        <th>ACTION</th>
                     </tr>
 
 
@@ -30,17 +30,22 @@
 
                 <tbody>
                     <tr>
-                    <td> ${detail.id}</td>
-                    <td> ${detail.checkIn}</td> 
-                    <td> ${detail.checkOut}</td>
+                        <td> ${detail.id}</td>
+                    <td>     ${detail.checkIn}</td> 
+                    <td> ${detail.checkOut}</td> 
                     <c:forEach items="${detail.chambres}" var="ch">
                         <td> ${ch.nom}</td>
                         <td> ${ch.prix}</td>
-                    </tr>     
-                </c:forEach>(
+                    </c:forEach> 
+                    <c:if test="${detail.etatReservation=='A_PAYER'}">
+                        <td><a href='<spring:url value="/reservationclient/payer/${id}"/>'>PAYER</a></td>
+                        <td><a href='<spring:url value="/reservationclient/annuler"/>'>ANNULER</a></td>
+                    </c:if> 
+                </tr>     
+
             </tbody>
         </table>
-</contenu>
-<c:import url="../_PIED.jsp"></c:import>
+    </contenu>
+    <c:import url="../_PIED.jsp"></c:import>
 </body>
 </html>
